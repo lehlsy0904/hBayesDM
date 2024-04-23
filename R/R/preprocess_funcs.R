@@ -722,20 +722,20 @@ pstRT_preprocess_func <- function(raw_data, general_info, RTbound = 0.1, initQ =
   t_max   <- general_info$t_max
 
   # Information for each trial
-  i_subjs <- array(-1, c(n_subj, t_max))
+  # i_subjs <- array(-1, c(n_subj, t_max))
   cond    <- array(-1, c(n_subj, t_max))
   choice  <- array(-1, c(n_subj, t_max))
   RT      <- array(-1, c(n_subj, t_max))
-  fd      <- array(-1, c(n_subj, t_max))
+  # fd      <- array(-1, c(n_subj, t_max))
   for (i in 1:n_subj) {
     subj <- subjs[i]
     subj_data <- subset(raw_data, raw_data$subjid == subj)
 
-    i_subjs[i, 1:t_subjs[i]] <- subj_data$iter
+    # i_subjs[i, 1:t_subjs[i]] <- subj_data$iter
     cond[i, 1:t_subjs[i]]    <- subj_data$cond
     choice[i, 1:t_subjs[i]]  <- subj_data$choice
     RT[i, 1:t_subjs[i]]      <- subj_data$rt
-    fd[i, 1:t_subjs[i]]      <- subj_data$feedback
+    # fd[i, 1:t_subjs[i]]      <- subj_data$feedback
   }
 
   # Task conditions and reward probabilities
@@ -752,12 +752,12 @@ pstRT_preprocess_func <- function(raw_data, general_info, RTbound = 0.1, initQ =
     N       = n_subj,
     T       = t_max,
     Tsubj   = t_subjs,
-    Isubj   = i_subjs,
+    # Isubj   = i_subjs,
     n_cond  = n_cond,
     cond    = cond,
     choice  = choice,
     RT      = RT,
-    fd      = fd,
+    # fd      = fd,
     initQ   = initQ,
     minRT   = minRT,
     RTbound = RTbound,
