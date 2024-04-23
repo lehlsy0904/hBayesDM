@@ -739,10 +739,11 @@ pstRT_preprocess_func <- function(raw_data, general_info, RTbound = 0.1, initQ =
   }
 
   # Task conditions and reward probabilities
-  df_prob <- unique(raw_data[, c('cond', 'prob')])
-  df_prob <- df_prob[order(df_prob$cond), ]
+  # df_prob <- unique(raw_data[, c('cond', 'prob')])
+  # df_prob <- df_prob[order(df_prob$cond), ]
   n_cond  <- nrow(df_prob)
-  prob    <- df_prob$prob
+  n_cond <- n_distinct(data$cond)
+  # prob    <- df_prob$prob
 
   # Minimum reaction time
   minRT <- with(raw_data, aggregate(rt, by = list(y = subjid), FUN = min)[["x"]])
@@ -760,8 +761,8 @@ pstRT_preprocess_func <- function(raw_data, general_info, RTbound = 0.1, initQ =
     # fd      = fd,
     initQ   = initQ,
     minRT   = minRT,
-    RTbound = RTbound,
-    prob    = prob
+    RTbound = RTbound
+    # prob    = prob
   )
 }
 
