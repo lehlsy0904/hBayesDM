@@ -141,17 +141,19 @@ hBayesDM_model <- function(task_name,
       stop("** Posterior predictions are not yet available for this model. **\n")
     }
 
-    if (is.null(data) || is.na(data) || data == "") {
-      stop("Invalid input for the 'data' value. ",
-           "You should pass a data.frame, or a filepath for a data file,",
-           "\"example\" for an example dataset, ",
-           "or \"choose\" to choose it in a prompt.")
+    # if (is.null(data) || is.na(data) || data == "") {
+    #   stop("Invalid input for the 'data' value. ",
+    #        "You should pass a data.frame, or a filepath for a data file,",
+    #        "\"example\" for an example dataset, ",
+    #        "or \"choose\" to choose it in a prompt.")
 
-    } else if ("data.frame" %in% class(data)) {
+    # } else if ("data.frame" %in% class(data)) {
+    if (is.data.frame(data)) {
       # Use the given data object
       raw_data <- data.table::as.data.table(data)
-
-    } else if ("character" %in% class(data)) {
+      } else if (length(data) == 1 && is.character(data)) {
+    # } else if ("character" %in% class(data)) {
+    
       # Set
       if (data == "example") {
         example_data <-
