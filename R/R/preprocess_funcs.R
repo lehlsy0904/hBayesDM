@@ -741,7 +741,7 @@ pstRT_preprocess_func <- function(raw_data, general_info, RTbound = 0.1, initQ =
   # Task conditions and reward probabilities
   # df_prob <- unique(raw_data[, c('cond', 'prob')])
   # df_prob <- df_prob[order(df_prob$cond), ]
-  n_cond  <- nrow(df_prob)
+  # n_cond  <- nrow(df_prob)
   n_cond <- n_distinct(data$cond)
   # prob    <- df_prob$prob
 
