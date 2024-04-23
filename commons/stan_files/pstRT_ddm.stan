@@ -48,7 +48,7 @@ data {
   real RT[N, T];                          // Response time
   real minRT[N];                          // Minimum RT for each subject of the observed data
   real RTbound;                           // Lower bound or RT across all subjects (e.g., 0.1 second)
-  real prob[n_cond];                      // Reward probability for each task condition (for posterior predictive check)
+  # real prob[n_cond];                      // Reward probability for each task condition (for posterior predictive check)
 }
 
 transformed data {
